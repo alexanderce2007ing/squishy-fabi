@@ -201,8 +201,7 @@ body {
         );
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.2s ease;
 
 }
 
@@ -211,6 +210,14 @@ body {
 
     transform:
         translateY(-3px);
+
+}
+
+
+#startButton:active {
+
+    transform:
+        scale(0.95);
 
 }
 
@@ -257,7 +264,7 @@ body {
 
     left: -100px;
 
-    background: #f5a8c7;
+    background: #ffd28a;
 
 }
 
@@ -268,7 +275,7 @@ body {
 
     top: 20%;
 
-    background: #c7a8f5;
+    background: #f7b5c8;
 
 }
 
@@ -283,6 +290,10 @@ body {
 
 }
 
+
+/* =================================
+   ESTRELLAS
+================================= */
 
 .stars {
 
@@ -314,6 +325,57 @@ body {
 }
 
 
+.stars span:nth-child(1) {
+    top: 10%;
+    left: 10%;
+}
+
+.stars span:nth-child(2) {
+    top: 20%;
+    left: 80%;
+}
+
+.stars span:nth-child(3) {
+    top: 35%;
+    left: 20%;
+}
+
+.stars span:nth-child(4) {
+    top: 50%;
+    left: 90%;
+}
+
+.stars span:nth-child(5) {
+    top: 65%;
+    left: 10%;
+}
+
+.stars span:nth-child(6) {
+    top: 75%;
+    left: 80%;
+}
+
+.stars span:nth-child(7) {
+    top: 85%;
+    left: 25%;
+}
+
+.stars span:nth-child(8) {
+    top: 15%;
+    left: 50%;
+}
+
+.stars span:nth-child(9) {
+    top: 45%;
+    left: 60%;
+}
+
+.stars span:nth-child(10) {
+    top: 90%;
+    left: 70%;
+}
+
+
 /* =================================
    MAÑANA
 ================================= */
@@ -331,20 +393,6 @@ body.morning {
 }
 
 
-body.morning .glow-one {
-
-    background: #ffd28a;
-
-}
-
-
-body.morning .glow-two {
-
-    background: #f7b5c8;
-
-}
-
-
 /* =================================
    TARDE
 ================================= */
@@ -358,20 +406,6 @@ body.afternoon {
             #f9dfcf 45%,
             #eac9d9
         );
-
-}
-
-
-body.afternoon .glow-one {
-
-    background: #ffc27d;
-
-}
-
-
-body.afternoon .glow-two {
-
-    background: #dba6dc;
 
 }
 
@@ -442,13 +476,6 @@ body.night #message {
 }
 
 
-body.night .tiny-text {
-
-    color: #aaa0ae;
-
-}
-
-
 body.night .interaction {
 
     background:
@@ -489,6 +516,10 @@ body.night .interaction {
 }
 
 
+/* =================================
+   PROGRESO
+================================= */
+
 .progress-area {
 
     position: absolute;
@@ -518,13 +549,6 @@ body.night .interaction {
     font-size: 0.75rem;
 
     color: #927f8d;
-
-}
-
-
-.night #step {
-
-    color: #aaa0ae;
 
 }
 
@@ -719,6 +743,7 @@ body.night .interaction {
             110,
             0.18
         ),
+
         inset
         15px
         12px
@@ -729,6 +754,7 @@ body.night .interaction {
             255,
             0.4
         ),
+
         0
         25px
         45px
@@ -744,6 +770,19 @@ body.night .interaction {
         3s
         ease-in-out
         infinite;
+
+    transition:
+        transform 0.15s ease;
+
+}
+
+
+.character.pressed .squishy {
+
+    animation:
+        press
+        0.35s
+        ease;
 
 }
 
@@ -770,6 +809,9 @@ body.night .interaction {
     border-radius: 50%;
 
     background: #3d2935;
+
+    transition:
+        transform 0.15s ease;
 
 }
 
@@ -977,7 +1019,7 @@ body.night .interaction {
 
 
 /* =================================
-   BOTON
+   BOTÓN
 ================================= */
 
 .interaction {
@@ -1017,6 +1059,25 @@ body.night .interaction {
             90,
             0.12
         );
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+.interaction:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.interaction:active {
+
+    transform:
+        scale(0.94);
 
 }
 
@@ -1084,6 +1145,18 @@ body.night .interaction {
 
     background:
         var(--cat-color);
+
+    box-shadow:
+        inset
+        8px
+        5px
+        15px
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
 
 }
 
@@ -1322,39 +1395,74 @@ body.night .interaction {
 
 
 .w1 {
+
     left: -28px;
+
     top: 55px;
-    transform: rotate(8deg);
+
+    transform:
+        rotate(8deg);
+
 }
+
 
 .w2 {
+
     left: -30px;
+
     top: 64px;
-    transform: rotate(-4deg);
+
+    transform:
+        rotate(-4deg);
+
 }
+
 
 .w3 {
+
     left: -27px;
+
     top: 72px;
-    transform: rotate(-12deg);
+
+    transform:
+        rotate(-12deg);
+
 }
+
 
 .w4 {
+
     right: -28px;
+
     top: 55px;
-    transform: rotate(-8deg);
+
+    transform:
+        rotate(-8deg);
+
 }
+
 
 .w5 {
+
     right: -30px;
+
     top: 64px;
-    transform: rotate(4deg);
+
+    transform:
+        rotate(4deg);
+
 }
 
+
 .w6 {
+
     right: -27px;
+
     top: 72px;
-    transform: rotate(12deg);
+
+    transform:
+        rotate(12deg);
+
 }
 
 
@@ -1413,7 +1521,7 @@ body.night .interaction {
 
 
 /* =================================
-   GATOS APARECIENDO
+   APARICIÓN GATOS
 ================================= */
 
 .cat-white.appear {
@@ -1506,6 +1614,22 @@ body.night .interaction {
    FINAL
 ================================= */
 
+body.final .interaction {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+body.final .tiny-text {
+
+    opacity: 0;
+
+}
+
+
 .character.sleeping .squishy {
 
     animation:
@@ -1520,22 +1644,6 @@ body.night .interaction {
 .character.sleeping .eye {
 
     height: 3px;
-
-}
-
-
-body.final .interaction {
-
-    opacity: 0;
-
-    pointer-events: none;
-
-}
-
-
-body.final .tiny-text {
-
-    opacity: 0;
 
 }
 
@@ -1583,6 +1691,45 @@ body.final .tiny-text {
         transform:
             translateY(-5px)
             scale(1.02);
+
+    }
+
+}
+
+
+@keyframes press {
+
+    0% {
+
+        transform:
+            scale(1);
+
+    }
+
+    35% {
+
+        transform:
+            scale(
+                0.88,
+                1.08
+            );
+
+    }
+
+    70% {
+
+        transform:
+            scale(
+                1.06,
+                0.94
+            );
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
 
     }
 
@@ -1677,6 +1824,20 @@ body.final .tiny-text {
 
         opacity: 0;
 
+        transform:
+            rotate(-8deg)
+            scale(0.8);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            rotate(4deg)
+            scale(1.05);
+
     }
 
     100% {
@@ -1686,6 +1847,10 @@ body.final .tiny-text {
         bottom: 35px;
 
         opacity: 1;
+
+        transform:
+            rotate(0)
+            scale(0.95);
 
     }
 
@@ -1703,6 +1868,16 @@ body.final .tiny-text {
         transform:
             translateX(-50%)
             scale(0.7);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
 
     }
 
@@ -1731,6 +1906,20 @@ body.final .tiny-text {
 
         opacity: 0;
 
+        transform:
+            rotate(8deg)
+            scale(0.8);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            rotate(-4deg)
+            scale(1.05);
+
     }
 
     100% {
@@ -1740,6 +1929,10 @@ body.final .tiny-text {
         bottom: 35px;
 
         opacity: 1;
+
+        transform:
+            rotate(0)
+            scale(0.95);
 
     }
 
