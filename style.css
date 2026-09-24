@@ -1,0 +1,2144 @@
+/* =================================
+   RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fff7fb 0%,
+            #fcecf5 35%,
+            #f4e4ef 70%,
+            #eadce9 100%
+        );
+
+    color: #392d39;
+
+    transition:
+        background 1.5s ease,
+        color 1.5s ease;
+}
+
+
+/* =================================
+   INTRO
+================================= */
+
+.intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff8fc 0%,
+            #f8e8f3 50%,
+            #ecdde9 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+.intro.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.intro-content {
+
+    width: min(90%, 520px);
+
+    text-align: center;
+
+    animation:
+        introAppear 1s ease forwards;
+
+}
+
+
+.intro-small {
+
+    margin-bottom: 15px;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #9a7f94;
+
+}
+
+
+.intro h1 {
+
+    margin-bottom: 20px;
+
+    font-size:
+        clamp(
+            2.5rem,
+            8vw,
+            5rem
+        );
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    color: #453441;
+
+}
+
+
+.intro-description {
+
+    margin-bottom: 35px;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    color: #776473;
+
+}
+
+
+#startButton {
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f39abf,
+            #d981ac
+        );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(
+            180,
+            90,
+            140,
+            0.25
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+#startButton:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(
+            180,
+            90,
+            140,
+            0.35
+        );
+
+}
+
+
+#startButton:active {
+
+    transform:
+        scale(0.95);
+
+}
+
+
+/* =================================
+   FONDO
+================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.glow {
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.35;
+
+}
+
+
+.glow-one {
+
+    top: -150px;
+
+    left: -100px;
+
+    background: #f5a8c7;
+
+}
+
+
+.glow-two {
+
+    right: -150px;
+
+    top: 20%;
+
+    background: #c7a8f5;
+
+}
+
+
+.glow-three {
+
+    bottom: -200px;
+
+    left: 30%;
+
+    background: #f5d2a8;
+
+}
+
+
+.stars {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.stars span {
+
+    position: absolute;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.75
+    );
+
+    animation:
+        twinkle
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.stars span:nth-child(1) {
+    top: 10%;
+    left: 10%;
+}
+
+.stars span:nth-child(2) {
+    top: 20%;
+    left: 80%;
+}
+
+.stars span:nth-child(3) {
+    top: 35%;
+    left: 20%;
+}
+
+.stars span:nth-child(4) {
+    top: 50%;
+    left: 90%;
+}
+
+.stars span:nth-child(5) {
+    top: 65%;
+    left: 10%;
+}
+
+.stars span:nth-child(6) {
+    top: 75%;
+    left: 80%;
+}
+
+.stars span:nth-child(7) {
+    top: 85%;
+    left: 25%;
+}
+
+.stars span:nth-child(8) {
+    top: 15%;
+    left: 50%;
+}
+
+.stars span:nth-child(9) {
+    top: 45%;
+    left: 60%;
+}
+
+.stars span:nth-child(10) {
+    top: 90%;
+    left: 70%;
+}
+
+
+/* =================================
+   EXPERIENCIA
+================================= */
+
+.experience {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+}
+
+
+.progress-area {
+
+    position: absolute;
+
+    top: 30px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(
+            350px,
+            80%
+        );
+
+}
+
+
+#step {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.75rem;
+
+    color: #927f8d;
+
+}
+
+
+.progress {
+
+    width: 100%;
+
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 99px;
+
+    background: rgba(
+        80,
+        50,
+        80,
+        0.08
+    );
+
+}
+
+
+.progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f29abd,
+            #c994df
+        );
+
+    transition:
+        width 0.5s ease;
+
+}
+
+
+/* =================================
+   CARTEL
+================================= */
+
+.sign {
+
+    position: relative;
+
+    z-index: 10;
+
+    min-height: 90px;
+
+    width:
+        min(
+            700px,
+            90%
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 30px;
+
+    padding:
+        20px 30px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.68
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    box-shadow:
+        0 15px 50px rgba(
+            100,
+            60,
+            100,
+            0.10
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+}
+
+
+#message {
+
+    font-size:
+        clamp(
+            1.1rem,
+            3vw,
+            1.7rem
+        );
+
+    font-weight: 700;
+
+    color: #493846;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.sign.change #message {
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+
+}
+
+
+/* =================================
+   SQUISHY
+================================= */
+
+.character {
+
+    position: relative;
+
+    width: 220px;
+
+    height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+
+.squishy {
+
+    position: relative;
+
+    width: 175px;
+
+    height: 170px;
+
+    border-radius:
+        48%
+        48%
+        42%
+        42%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb9d2,
+            #ef8fb7
+        );
+
+    box-shadow:
+
+        inset
+        -15px
+        -18px
+        25px
+        rgba(
+            170,
+            70,
+            110,
+            0.18
+        ),
+
+        inset
+        15px
+        12px
+        20px
+        rgba(
+            255,
+            255,
+            255,
+            0.4
+        ),
+
+        0
+        25px
+        45px
+        rgba(
+            150,
+            70,
+            110,
+            0.18
+        );
+
+    animation:
+        breathe
+        3s
+        ease-in-out
+        infinite;
+
+    transition:
+        transform 0.15s ease;
+
+}
+
+
+.character.pressed .squishy {
+
+    animation:
+        press
+        0.35s
+        ease;
+
+}
+
+
+.face {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.eye {
+
+    position: absolute;
+
+    top: 67px;
+
+    width: 13px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #3d2935;
+
+    transition:
+        transform 0.15s ease;
+
+}
+
+
+#eyeLeft {
+
+    left: 53px;
+
+}
+
+
+#eyeRight {
+
+    right: 53px;
+
+}
+
+
+.eye::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 3px;
+
+    left: 3px;
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: white;
+
+}
+
+
+.mouth {
+
+    position: absolute;
+
+    top: 105px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 25px;
+
+    height: 15px;
+
+    border-bottom:
+        4px solid
+        #49303b;
+
+    border-radius:
+        0 0 50% 50%;
+
+}
+
+
+.cheek {
+
+    position: absolute;
+
+    top: 98px;
+
+    width: 20px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: rgba(
+        240,
+        95,
+        140,
+        0.25
+    );
+
+}
+
+
+.cheek-left {
+
+    left: 30px;
+
+}
+
+
+.cheek-right {
+
+    right: 30px;
+
+}
+
+
+/* =================================
+   BRAZOS
+================================= */
+
+.arm {
+
+    position: absolute;
+
+    width: 55px;
+
+    height: 25px;
+
+    border-radius: 999px;
+
+    background:
+        #f19abd;
+
+    top: 135px;
+
+}
+
+
+.arm-left {
+
+    left: 5px;
+
+    transform:
+        rotate(25deg);
+
+}
+
+
+.arm-right {
+
+    right: 5px;
+
+    transform:
+        rotate(-25deg);
+
+}
+
+
+/* =================================
+   PIERNAS
+================================= */
+
+.leg {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    width: 45px;
+
+    height: 30px;
+
+    border-radius:
+        50%;
+
+    background:
+        #e983ae;
+
+}
+
+
+.leg-left {
+
+    left: 50px;
+
+}
+
+
+.leg-right {
+
+    right: 50px;
+
+}
+
+
+/* =================================
+   SOMBRA
+================================= */
+
+.character-shadow {
+
+    position: absolute;
+
+    bottom: 5px;
+
+    width: 180px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            90,
+            50,
+            80,
+            0.13
+        );
+
+    filter:
+        blur(10px);
+
+}
+
+
+/* =================================
+   BOTON
+================================= */
+
+.interaction {
+
+    position: relative;
+
+    z-index: 20;
+
+    margin-top: 10px;
+
+    border: none;
+
+    padding:
+        14px 28px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.8
+        );
+
+    color: #624c5c;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            90,
+            50,
+            90,
+            0.12
+        );
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+.interaction:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.interaction:active {
+
+    transform:
+        scale(0.94);
+
+}
+
+
+.tiny-text {
+
+    margin-top: 12px;
+
+    font-size: 0.75rem;
+
+    color: #a18d9d;
+
+}
+
+
+/* =================================
+   PARTICULAS
+================================= */
+
+#particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        #f29abd;
+
+    animation:
+        particleFly
+        0.8s
+        ease-out
+        forwards;
+
+}
+
+
+/* =================================
+   GATOS
+================================= */
+
+#cats-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 15;
+
+    pointer-events: none;
+
+}
+
+
+/* BASE */
+
+.persian-cat {
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 145px;
+
+    bottom: -180px;
+
+    opacity: 0;
+
+    transform:
+        scale(0.85);
+
+}
+
+
+/* CUERPO */
+
+.cat-body {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 20px;
+
+    width: 90px;
+
+    height: 85px;
+
+    border-radius:
+        48%
+        48%
+        40%
+        40%;
+
+    background:
+        var(--cat-color);
+
+    box-shadow:
+        inset
+        8px
+        5px
+        15px
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+}
+
+
+/* CABEZA */
+
+.cat-head {
+
+    position: absolute;
+
+    width: 105px;
+
+    height: 90px;
+
+    left: -8px;
+
+    top: -58px;
+
+    border-radius:
+        47%
+        47%
+        42%
+        42%;
+
+    background:
+        var(--cat-color);
+
+    box-shadow:
+        inset
+        7px
+        5px
+        15px
+        rgba(
+            255,
+            255,
+            255,
+            0.2
+        );
+
+}
+
+
+/* OREJAS */
+
+.ear {
+
+    position: absolute;
+
+    width: 34px;
+
+    height: 34px;
+
+    top: -15px;
+
+    background:
+        var(--cat-color);
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 0,
+            100% 100%
+        );
+
+}
+
+
+.ear::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 9px;
+
+    top: 9px;
+
+    width: 16px;
+
+    height: 16px;
+
+    background:
+        #eaa5b9;
+
+    opacity: 0.55;
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 0,
+            100% 100%
+        );
+
+}
+
+
+.ear-left {
+
+    left: 8px;
+
+}
+
+
+.ear-right {
+
+    right: 8px;
+
+}
+
+
+/* OJOS */
+
+.cat-eye {
+
+    position: absolute;
+
+    top: 32px;
+
+    width: 17px;
+
+    height: 21px;
+
+    border-radius: 50%;
+
+    background:
+        #40333b;
+
+}
+
+
+.cat-eye span {
+
+    position: absolute;
+
+    top: 4px;
+
+    left: 4px;
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+
+}
+
+
+.eye-left {
+
+    left: 27px;
+
+}
+
+
+.eye-right {
+
+    right: 27px;
+
+}
+
+
+/* NARIZ */
+
+.cat-nose {
+
+    position: absolute;
+
+    top: 56px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 12px;
+
+    height: 9px;
+
+    border-radius:
+        50% 50% 60% 60%;
+
+    background:
+        #e99aae;
+
+}
+
+
+/* BOCA */
+
+.cat-mouth {
+
+    position: absolute;
+
+    top: 64px;
+
+    left: 50%;
+
+    width: 25px;
+
+    height: 13px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.cat-mouth::before,
+.cat-mouth::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 8px;
+
+    border-bottom:
+        2px solid
+        #5b4049;
+
+    border-radius: 50%;
+
+}
+
+
+.cat-mouth::before {
+
+    left: 1px;
+
+}
+
+
+.cat-mouth::after {
+
+    right: 1px;
+
+}
+
+
+/* BIGOTES */
+
+.whisker {
+
+    position: absolute;
+
+    width: 35px;
+
+    height: 1px;
+
+    background:
+        rgba(
+            80,
+            60,
+            70,
+            0.5
+        );
+
+}
+
+
+.w1 {
+
+    left: -28px;
+    top: 55px;
+    transform: rotate(8deg);
+
+}
+
+
+.w2 {
+
+    left: -30px;
+    top: 64px;
+    transform: rotate(-4deg);
+
+}
+
+
+.w3 {
+
+    left: -27px;
+    top: 72px;
+    transform: rotate(-12deg);
+
+}
+
+
+.w4 {
+
+    right: -28px;
+    top: 55px;
+    transform: rotate(-8deg);
+
+}
+
+
+.w5 {
+
+    right: -30px;
+    top: 64px;
+    transform: rotate(4deg);
+
+}
+
+
+.w6 {
+
+    right: -27px;
+    top: 72px;
+    transform: rotate(12deg);
+
+}
+
+
+/* COLA */
+
+.cat-tail {
+
+    position: absolute;
+
+    z-index: -1;
+
+    width: 70px;
+
+    height: 70px;
+
+    bottom: 30px;
+
+    border:
+        14px solid
+        var(--cat-color);
+
+    border-left-color:
+        transparent;
+
+    border-bottom-color:
+        transparent;
+
+    border-radius: 50%;
+
+}
+
+
+.cat-white {
+
+    --cat-color: #f5f3f1;
+
+    left: 8%;
+
+}
+
+
+.cat-orange {
+
+    --cat-color: #e9a05b;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        scale(0.85);
+
+}
+
+
+.cat-dark {
+
+    --cat-color: #4e4b52;
+
+    right: 8%;
+
+}
+
+
+/* =================================
+   APARICIÓN GATOS
+================================= */
+
+.persian-cat.appear {
+
+    opacity: 1;
+
+}
+
+
+.cat-white.appear {
+
+    animation:
+        catFromLeft
+        1.3s
+        cubic-bezier(
+            .2,
+            .9,
+            .25,
+            1
+        )
+        forwards;
+
+}
+
+
+.cat-orange.appear {
+
+    animation:
+        catFromBottom
+        1.3s
+        cubic-bezier(
+            .2,
+            .9,
+            .25,
+            1
+        )
+        forwards;
+
+}
+
+
+.cat-dark.appear {
+
+    animation:
+        catFromRight
+        1.3s
+        cubic-bezier(
+            .2,
+            .9,
+            .25,
+            1
+        )
+        forwards;
+
+}
+
+
+/* =================================
+   FINAL POSICIONES
+================================= */
+
+.cat-white.visible {
+
+    bottom: 35px;
+
+    left: 8%;
+
+    opacity: 1;
+
+}
+
+
+.cat-orange.visible {
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        scale(0.85);
+
+    opacity: 1;
+
+}
+
+
+.cat-dark.visible {
+
+    bottom: 35px;
+
+    right: 8%;
+
+    opacity: 1;
+
+}
+
+
+/* =================================
+   FINAL
+================================= */
+
+body.final {
+
+    color: #eee;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #282238,
+            #171521 65%,
+            #0d0c13 100%
+        );
+
+}
+
+
+body.final .sign {
+
+    background:
+        rgba(
+            40,
+            34,
+            50,
+            0.8
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+}
+
+
+body.final #message {
+
+    color: #f4e9f3;
+
+}
+
+
+body.final .interaction {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+body.final .tiny-text {
+
+    opacity: 0;
+
+}
+
+
+/* DORMIR */
+
+.character.sleeping .squishy {
+
+    animation:
+        sleep
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.character.sleeping .eye {
+
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        #49303b;
+
+}
+
+
+.character.sleeping .mouth {
+
+    width: 15px;
+
+    height: 8px;
+
+}
+
+
+.character.sleeping .arm-left {
+
+    transform:
+        rotate(-20deg);
+
+}
+
+
+.character.sleeping .arm-right {
+
+    transform:
+        rotate(20deg);
+
+}
+
+
+/* =================================
+   ANIMACIONES
+================================= */
+
+@keyframes introAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes breathe {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px)
+            scale(1.02);
+
+    }
+
+}
+
+
+@keyframes press {
+
+    0% {
+
+        transform:
+            scale(1);
+
+    }
+
+    35% {
+
+        transform:
+            scale(
+                0.88,
+                1.08
+            );
+
+    }
+
+    70% {
+
+        transform:
+            scale(
+                1.06,
+                0.94
+            );
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes sleep {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(4px)
+            scale(
+                1.03,
+                0.97
+            );
+
+    }
+
+}
+
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+
+        opacity: 0.3;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.3);
+
+    }
+
+}
+
+
+@keyframes particleFly {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                0,
+                0
+            )
+            scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0);
+
+    }
+
+}
+
+
+@keyframes catFromLeft {
+
+    0% {
+
+        left: -160px;
+
+        bottom: 25px;
+
+        opacity: 0;
+
+        transform:
+            rotate(-8deg)
+            scale(0.8);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            rotate(4deg)
+            scale(1.05);
+
+    }
+
+    100% {
+
+        left: 8%;
+
+        bottom: 35px;
+
+        opacity: 1;
+
+        transform:
+            rotate(0)
+            scale(0.95);
+
+    }
+
+}
+
+
+@keyframes catFromBottom {
+
+    0% {
+
+        bottom: -170px;
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scale(0.7);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+
+    }
+
+    100% {
+
+        bottom: 30px;
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(0.85);
+
+    }
+
+}
+
+
+@keyframes catFromRight {
+
+    0% {
+
+        right: -160px;
+
+        bottom: 25px;
+
+        opacity: 0;
+
+        transform:
+            rotate(8deg)
+            scale(0.8);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            rotate(-4deg)
+            scale(1.05);
+
+    }
+
+    100% {
+
+        right: 8%;
+
+        bottom: 35px;
+
+        opacity: 1;
+
+        transform:
+            rotate(0)
+            scale(0.95);
+
+    }
+
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+    .intro {
+
+        padding: 20px;
+
+    }
+
+
+    .intro h1 {
+
+        font-size: 2.7rem;
+
+    }
+
+
+    .intro-description {
+
+        font-size: 0.95rem;
+
+    }
+
+
+    .sign {
+
+        min-height: 85px;
+
+        padding:
+            18px;
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .character {
+
+        transform:
+            scale(0.85);
+
+        margin-top: -10px;
+
+    }
+
+
+    .persian-cat {
+
+        transform:
+            scale(0.7);
+
+    }
+
+
+    .cat-white {
+
+        left: -5%;
+
+    }
+
+
+    .cat-orange {
+
+        left: 50%;
+
+    }
+
+
+    .cat-dark {
+
+        right: -5%;
+
+    }
+
+
+    .cat-white.visible {
+
+        left: -2%;
+
+        bottom: 25px;
+
+    }
+
+
+    .cat-orange.visible {
+
+        bottom: 20px;
+
+    }
+
+
+    .cat-dark.visible {
+
+        right: -2%;
+
+        bottom: 25px;
+
+    }
+
+
+    @keyframes catFromLeft {
+
+        0% {
+
+            left: -180px;
+
+            opacity: 0;
+
+        }
+
+        100% {
+
+            left: -2%;
+
+            bottom: 25px;
+
+            opacity: 1;
+
+            transform:
+                scale(0.7);
+
+        }
+
+    }
+
+
+    @keyframes catFromBottom {
+
+        0% {
+
+            bottom: -180px;
+
+            opacity: 0;
+
+            transform:
+                translateX(-50%)
+                scale(0.5);
+
+        }
+
+        100% {
+
+            bottom: 20px;
+
+            opacity: 1;
+
+            transform:
+                translateX(-50%)
+                scale(0.7);
+
+        }
+
+    }
+
+
+    @keyframes catFromRight {
+
+        0% {
+
+            right: -180px;
+
+            opacity: 0;
+
+        }
+
+        100% {
+
+            right: -2%;
+
+            bottom: 25px;
+
+            opacity: 1;
+
+            transform:
+                scale(0.7);
+
+        }
+
+    }
+
+}
