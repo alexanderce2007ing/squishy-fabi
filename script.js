@@ -1,10 +1,242 @@
 /* ==========================================
+   HORA DE PERÚ 🇵🇪
+========================================== */
+
+function getPeruDate() {
+
+    const parts =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: "America/Lima",
+
+                year: "numeric",
+
+                month: "2-digit",
+
+                day: "2-digit",
+
+                hour: "2-digit",
+
+                minute: "2-digit",
+
+                second: "2-digit",
+
+                hour12: false
+            }
+        ).formatToParts(
+            new Date()
+        );
+
+
+    const result = {};
+
+
+    parts.forEach(
+        part => {
+
+            if (
+                part.type !== "literal"
+            ) {
+
+                result[part.type] =
+                    part.value;
+
+            }
+
+        }
+    );
+
+
+    return {
+
+        year:
+            Number(result.year),
+
+        month:
+            Number(result.month),
+
+        day:
+            Number(result.day),
+
+        hour:
+            Number(result.hour),
+
+        minute:
+            Number(result.minute),
+
+        second:
+            Number(result.second)
+
+    };
+
+}
+
+
+/* ==========================================
+   OBTENER HORA DE PERÚ
+========================================== */
+
+function getPeruHour() {
+
+    return getPeruDate().hour;
+
+}
+
+
+/* ==========================================
+   SALUDO
+========================================== */
+
+function getPeruGreeting() {
+
+    const hour =
+        getPeruHour();
+
+
+    if (
+        hour >= 5 &&
+        hour < 12
+    ) {
+
+        return "Buenos días, Fabi 🌤️";
+
+    }
+
+
+    if (
+        hour >= 12 &&
+        hour < 18
+    ) {
+
+        return "Buenas tardes, Fabi ☀️";
+
+    }
+
+
+    if (
+        hour >= 18 &&
+        hour < 23
+    ) {
+
+        return "Buenas noches, Fabi 🌆";
+
+    }
+
+
+    return "Buenas noches, Fabi 🌙";
+
+}
+
+
+/* ==========================================
+   CAMBIAR AMBIENTE
+========================================== */
+
+function updatePeruTheme() {
+
+    const hour =
+        getPeruHour();
+
+
+    document.body.classList.remove(
+        "morning",
+        "afternoon",
+        "night"
+    );
+
+
+    if (
+        hour >= 5 &&
+        hour < 12
+    ) {
+
+        document.body.classList.add(
+            "morning"
+        );
+
+    }
+
+    else if (
+        hour >= 12 &&
+        hour < 18
+    ) {
+
+        document.body.classList.add(
+            "afternoon"
+        );
+
+    }
+
+    else {
+
+        document.body.classList.add(
+            "night"
+        );
+
+    }
+
+
+    /*
+       Actualizar saludo de portada
+    */
+
+    if (greetingTitle) {
+
+        greetingTitle.textContent =
+            getPeruGreeting();
+
+    }
+
+
+    /*
+       Actualizar descripción
+    */
+
+    if (introDescription) {
+
+        if (
+            hour >= 5 &&
+            hour < 12
+        ) {
+
+            introDescription.innerHTML =
+                "Espero que hayas empezado bien el día.<br>" +
+                "Hice una pequeña cosa para ti. 👀";
+
+        }
+
+        else if (
+            hour >= 12 &&
+            hour < 18
+        ) {
+
+            introDescription.innerHTML =
+                "Hice una pequeña cosa para ti.<br>" +
+                "No es nada raro... bueno, quizás un poquito.";
+
+        }
+
+        else {
+
+            introDescription.innerHTML =
+                "Antes de dormir...<br>" +
+                "hice una pequeña cosa para ti. 🌙";
+
+        }
+
+    }
+
+}
+
+
+/* ==========================================
    MENSAJES
 ========================================== */
 
 const messages = [
 
-    "Hola, Fabi 👀",
+    getPeruGreeting(),
 
     "Hice algo para ti...",
 
@@ -43,40 +275,87 @@ let started = false;
 ========================================== */
 
 const intro =
-    document.getElementById("intro");
+    document.getElementById(
+        "intro"
+    );
+
 
 const startButton =
-    document.getElementById("startButton");
+    document.getElementById(
+        "startButton"
+    );
+
 
 const character =
-    document.getElementById("character");
+    document.getElementById(
+        "character"
+    );
+
 
 const interaction =
-    document.getElementById("interaction");
+    document.getElementById(
+        "interaction"
+    );
+
 
 const sign =
-    document.getElementById("sign");
+    document.getElementById(
+        "sign"
+    );
+
 
 const message =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
+
 
 const step =
-    document.getElementById("step");
+    document.getElementById(
+        "step"
+    );
+
 
 const progressBar =
-    document.getElementById("progressBar");
+    document.getElementById(
+        "progressBar"
+    );
+
 
 const mouth =
-    document.getElementById("mouth");
+    document.getElementById(
+        "mouth"
+    );
+
 
 const eyeLeft =
-    document.getElementById("eyeLeft");
+    document.getElementById(
+        "eyeLeft"
+    );
+
 
 const eyeRight =
-    document.getElementById("eyeRight");
+    document.getElementById(
+        "eyeRight"
+    );
+
 
 const particles =
-    document.getElementById("particles");
+    document.getElementById(
+        "particles"
+    );
+
+
+const greetingTitle =
+    document.getElementById(
+        "greetingTitle"
+    );
+
+
+const introDescription =
+    document.getElementById(
+        "introDescription"
+    );
 
 
 /* ==========================================
@@ -84,13 +363,42 @@ const particles =
 ========================================== */
 
 const catWhite =
-    document.getElementById("catWhite");
+    document.getElementById(
+        "catWhite"
+    );
+
 
 const catOrange =
-    document.getElementById("catOrange");
+    document.getElementById(
+        "catOrange"
+    );
+
 
 const catDark =
-    document.getElementById("catDark");
+    document.getElementById(
+        "catDark"
+    );
+
+
+/* ==========================================
+   ACTUALIZAR HORA
+========================================== */
+
+updatePeruTheme();
+
+
+/*
+   Comprobar cada minuto.
+
+   Así, si la página permanece abierta
+   durante el cambio de hora, también
+   cambia automáticamente.
+*/
+
+setInterval(
+    updatePeruTheme,
+    60000
+);
 
 
 /* ==========================================
@@ -103,25 +411,32 @@ startButton.addEventListener(
 
         started = true;
 
-        intro.classList.add("hide");
+        intro.classList.add(
+            "hide"
+        );
+
 
         playSound(
             520,
             0.12
         );
 
-        setTimeout(() => {
 
-            updateMessage();
+        setTimeout(
+            () => {
 
-        }, 500);
+                updateMessage();
+
+            },
+            500
+        );
 
     }
 );
 
 
 /* ==========================================
-   CLICK EN PERSONAJE
+   CLICK PERSONAJE
 ========================================== */
 
 character.addEventListener(
@@ -144,6 +459,7 @@ function nextMessage() {
 
     if (!started) return;
 
+
     if (
         current >=
         messages.length - 1
@@ -154,7 +470,9 @@ function nextMessage() {
     }
 
 
-    /* VIBRACIÓN */
+    /*
+       Vibración
+    */
 
     if (
         navigator.vibrate
@@ -165,40 +483,54 @@ function nextMessage() {
     }
 
 
-    /* ANIMACIÓN */
+    /*
+       Animación
+    */
 
     character.classList.remove(
         "pressed"
     );
 
+
     void character.offsetWidth;
+
 
     character.classList.add(
         "pressed"
     );
 
 
-    /* SONIDO */
+    /*
+       Sonido
+    */
 
     playSound(
-        350 + current * 30,
+        350 +
+        current * 30,
         0.08
     );
 
 
-    /* PARTICULAS */
+    /*
+       Partículas
+    */
 
     createParticles();
 
 
-    /* SIGUIENTE */
+    /*
+       Siguiente
+    */
 
     current++;
+
 
     updateMessage();
 
 
-    /* GATOS */
+    /*
+       Gatos
+    */
 
     triggerCats(
         current
@@ -218,21 +550,25 @@ function updateMessage() {
     );
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        message.textContent =
-            messages[current];
-
-
-        sign.classList.remove(
-            "change"
-        );
+            message.textContent =
+                messages[current];
 
 
-    }, 250);
+            sign.classList.remove(
+                "change"
+            );
+
+        },
+        250
+    );
 
 
-    /* PROGRESO */
+    /*
+       Progreso
+    */
 
     step.textContent =
         `${current + 1} / ${messages.length}`;
@@ -241,7 +577,9 @@ function updateMessage() {
     const percentage =
         (
             current /
-            (messages.length - 1)
+            (
+                messages.length - 1
+            )
         ) * 100;
 
 
@@ -249,86 +587,112 @@ function updateMessage() {
         `${percentage}%`;
 
 
-    /* EXPRESIÓN */
+    /*
+       Expresión
+    */
 
     changeExpression(
         current
     );
 
 
-    /* TEXTO DEL BOTÓN */
+    /*
+       Botón
+    */
 
-    if (current === 0) {
+    if (
+        current === 0
+    ) {
 
         interaction.textContent =
             "Tócame 👆";
 
     }
 
-    else if (current === 1) {
+    else if (
+        current === 1
+    ) {
 
         interaction.textContent =
             "A ver... 👀";
 
     }
 
-    else if (current === 2) {
+    else if (
+        current === 2
+    ) {
 
         interaction.textContent =
             "Continúa 😭";
 
     }
 
-    else if (current === 3) {
+    else if (
+        current === 3
+    ) {
 
         interaction.textContent =
             "Bueno pues...";
 
     }
 
-    else if (current === 4) {
+    else if (
+        current === 4
+    ) {
 
         interaction.textContent =
             "Siguiente 👀";
 
     }
 
-    else if (current === 5) {
+    else if (
+        current === 5
+    ) {
 
         interaction.textContent =
             "Sigue";
 
     }
 
-    else if (current === 6) {
+    else if (
+        current === 6
+    ) {
 
         interaction.textContent =
             "JAJA";
 
     }
 
-    else if (current === 7) {
+    else if (
+        current === 7
+    ) {
 
         interaction.textContent =
             "Ya ya 😭";
 
     }
 
-    else if (current === 8) {
+    else if (
+        current === 8
+    ) {
 
         interaction.textContent =
             "🤐";
 
     }
 
-    else if (current === 9) {
+    else if (
+        current === 9
+    ) {
 
         interaction.textContent =
             "Una última...";
 
     }
 
-    else if (current === 10) {
+    else if (
+        current === 10
+    ) {
 
         interaction.textContent =
             "🌙";
@@ -350,8 +714,6 @@ function changeExpression(
 
     mouth.style.cssText = "";
 
-
-    /* FELIZ */
 
     if (
         number === 0 ||
@@ -375,8 +737,6 @@ function changeExpression(
     }
 
 
-    /* NERVIOSO */
-
     else if (
         number === 1 ||
         number === 2
@@ -396,8 +756,6 @@ function changeExpression(
 
     }
 
-
-    /* SONRISA */
 
     else if (
         number === 3 ||
@@ -419,8 +777,6 @@ function changeExpression(
     }
 
 
-    /* VERGÜENZA */
-
     else if (
         number === 7 ||
         number === 8
@@ -440,8 +796,6 @@ function changeExpression(
 
     }
 
-
-    /* FINAL */
 
     if (
         number === 10
@@ -474,60 +828,69 @@ function triggerCats(
 
     /*
        PASO 2
-       GATO BLANCO
+       BLANCO
     */
 
     if (
         stepNumber === 2
     ) {
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            showCat(
-                catWhite
-            );
+                showCat(
+                    catWhite
+                );
 
-        }, 500);
+            },
+            500
+        );
 
     }
 
 
     /*
        PASO 5
-       GATO NARANJA
+       NARANJA
     */
 
     if (
         stepNumber === 5
     ) {
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            showCat(
-                catOrange
-            );
+                showCat(
+                    catOrange
+                );
 
-        }, 500);
+            },
+            500
+        );
 
     }
 
 
     /*
        PASO 7
-       GATO NEGRO
+       NEGRO
     */
 
     if (
         stepNumber === 7
     ) {
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            showCat(
-                catDark
-            );
+                showCat(
+                    catDark
+                );
 
-        }, 500);
+            },
+            500
+        );
 
     }
 
@@ -557,15 +920,6 @@ function showCat(
         "appear"
     );
 
-
-    setTimeout(() => {
-
-        cat.classList.add(
-            "visible"
-        );
-
-    }, 1300);
-
 }
 
 
@@ -575,65 +929,72 @@ function showCat(
 
 function finish() {
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        document.body.classList.add(
-            "final"
-        );
-
-
-        character.classList.add(
-            "sleeping"
-        );
+            document.body.classList.add(
+                "final"
+            );
 
 
-        /*
-           ASEGURAR QUE LOS 3
-           GATOS ESTÉN PRESENTES
-        */
+            character.classList.add(
+                "sleeping"
+            );
 
-        setTimeout(() => {
+
+            /*
+               Aseguramos los 3 gatos
+            */
 
             showCat(
                 catWhite
             );
 
-        }, 200);
 
+            setTimeout(
+                () => {
 
-        setTimeout(() => {
+                    showCat(
+                        catOrange
+                    );
 
-            showCat(
-                catOrange
+                },
+                250
             );
 
-        }, 500);
 
+            setTimeout(
+                () => {
 
-        setTimeout(() => {
+                    showCat(
+                        catDark
+                    );
 
-            showCat(
-                catDark
+                },
+                500
             );
 
-        }, 800);
 
+            /*
+               Sonido final
+            */
 
-        /*
-           SONIDO FINAL
-        */
+            setTimeout(
+                () => {
 
-        setTimeout(() => {
+                    playSound(
+                        260,
+                        0.18
+                    );
 
-            playSound(
-                260,
-                0.18
+                },
+                1000
             );
 
-        }, 1000);
 
-
-    }, 700);
+        },
+        700
+    );
 
 }
 
@@ -683,13 +1044,17 @@ function createParticles() {
 
 
         const x =
-            (Math.random() - 0.5)
-            * 220;
+            (
+                Math.random() -
+                0.5
+            ) * 220;
 
 
         const y =
-            (Math.random() - 0.5)
-            * 180;
+            (
+                Math.random() -
+                0.5
+            ) * 180;
 
 
         particle.style.setProperty(
@@ -704,29 +1069,19 @@ function createParticles() {
         );
 
 
-        const size =
-            4 +
-            Math.random() * 7;
-
-
-        particle.style.width =
-            `${size}px`;
-
-
-        particle.style.height =
-            `${size}px`;
-
-
         particles.appendChild(
             particle
         );
 
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            particle.remove();
+                particle.remove();
 
-        }, 900);
+            },
+            900
+        );
 
     }
 
@@ -734,12 +1089,12 @@ function createParticles() {
 
 
 /* ==========================================
-   OJOS SIGUEN AL CURSOR
+   OJOS
 ========================================== */
 
 document.addEventListener(
     "mousemove",
-    (event) => {
+    event => {
 
         if (!started) return;
 
@@ -787,15 +1142,15 @@ function moveEyes(
         );
 
 
-    const maxMove =
-        5;
+    const maxMove = 5;
 
 
     const moveX =
         distance === 0
             ? 0
             : (
-                dx / distance
+                dx /
+                distance
             ) * maxMove;
 
 
@@ -803,7 +1158,8 @@ function moveEyes(
         distance === 0
             ? 0
             : (
-                dy / distance
+                dy /
+                distance
             ) * maxMove;
 
 
@@ -878,7 +1234,8 @@ function playSound(
 
         gain.gain.exponentialRampToValueAtTime(
             0.12,
-            audioContext.currentTime + 0.01
+            audioContext.currentTime +
+            0.01
         );
 
 
@@ -918,36 +1275,3 @@ function playSound(
     }
 
 }
-
-
-/* ==========================================
-   TOUCH / MOVIL
-========================================== */
-
-document.addEventListener(
-    "touchstart",
-    () => {
-
-        if (
-            started &&
-            audioContext &&
-            audioContext.state ===
-            "suspended"
-        ) {
-
-            audioContext.resume();
-
-        }
-
-    },
-    {
-        passive: true
-    }
-);
-
-
-/* ==========================================
-   MENSAJE INICIAL
-========================================== */
-
-updateMessage();
