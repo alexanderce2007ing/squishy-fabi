@@ -1,24 +1,32 @@
 /* ==========================================
    HORA DE PERÚ 🇵🇪
-   MODO PRUEBA: 08:43 AM
+   
+   MODO PRUEBA:
+   24/09/2026 - 08:43 AM
 ========================================== */
 
 function getPeruDate() {
 
     /*
-       TEMPORALMENTE SIMULAMOS:
-
-       08:43 AM
-       hora de Perú
+       Estamos simulando las 08:43 AM
+       de Perú para poder probar
+       el diseño de la mañana.
     */
 
     return {
+
         year: 2026,
+
         month: 9,
+
         day: 24,
+
         hour: 8,
+
         minute: 43,
+
         second: 0
+
     };
 
 }
@@ -36,7 +44,7 @@ function getPeruHour() {
 
 
 /* ==========================================
-   SALUDO SEGÚN HORARIO
+   SALUDO
 ========================================== */
 
 function getPeruGreeting() {
@@ -81,7 +89,7 @@ function getPeruGreeting() {
 
 
 /* ==========================================
-   AMBIENTE SEGÚN HORA
+   AMBIENTE
 ========================================== */
 
 function updatePeruTheme() {
@@ -135,10 +143,6 @@ function updatePeruTheme() {
 
     }
 
-
-    /*
-       TEXTO DE INTRODUCCIÓN
-    */
 
     if (introDescription) {
 
@@ -203,7 +207,7 @@ const messages = [
 
     "Solo quería sacarte una sonrisa.",
 
-    "Ahora sí, buenas noches 🌙"
+    "Suerte y ten un buen día 🍀☀️"
 
 ];
 
@@ -222,46 +226,87 @@ let started = false;
 ========================================== */
 
 const intro =
-    document.getElementById("intro");
+    document.getElementById(
+        "intro"
+    );
+
 
 const startButton =
-    document.getElementById("startButton");
+    document.getElementById(
+        "startButton"
+    );
+
 
 const character =
-    document.getElementById("character");
+    document.getElementById(
+        "character"
+    );
+
 
 const interaction =
-    document.getElementById("interaction");
+    document.getElementById(
+        "interaction"
+    );
+
 
 const sign =
-    document.getElementById("sign");
+    document.getElementById(
+        "sign"
+    );
+
 
 const message =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
+
 
 const step =
-    document.getElementById("step");
+    document.getElementById(
+        "step"
+    );
+
 
 const progressBar =
-    document.getElementById("progressBar");
+    document.getElementById(
+        "progressBar"
+    );
+
 
 const mouth =
-    document.getElementById("mouth");
+    document.getElementById(
+        "mouth"
+    );
+
 
 const eyeLeft =
-    document.getElementById("eyeLeft");
+    document.getElementById(
+        "eyeLeft"
+    );
+
 
 const eyeRight =
-    document.getElementById("eyeRight");
+    document.getElementById(
+        "eyeRight"
+    );
+
 
 const particles =
-    document.getElementById("particles");
+    document.getElementById(
+        "particles"
+    );
+
 
 const greetingTitle =
-    document.getElementById("greetingTitle");
+    document.getElementById(
+        "greetingTitle"
+    );
+
 
 const introDescription =
-    document.getElementById("introDescription");
+    document.getElementById(
+        "introDescription"
+    );
 
 
 /* ==========================================
@@ -269,13 +314,21 @@ const introDescription =
 ========================================== */
 
 const catWhite =
-    document.getElementById("catWhite");
+    document.getElementById(
+        "catWhite"
+    );
+
 
 const catOrange =
-    document.getElementById("catOrange");
+    document.getElementById(
+        "catOrange"
+    );
+
 
 const catDark =
-    document.getElementById("catDark");
+    document.getElementById(
+        "catDark"
+    );
 
 
 /* ==========================================
@@ -285,17 +338,8 @@ const catDark =
 updatePeruTheme();
 
 
-/*
-   En producción esto se ejecutaría
-   cada minuto.
-
-   Como estamos probando una hora fija,
-   no necesitamos actualizarla.
-*/
-
-
 /* ==========================================
-   BOTÓN INICIAL
+   INICIO
 ========================================== */
 
 startButton.addEventListener(
@@ -308,10 +352,12 @@ startButton.addEventListener(
             "hide"
         );
 
+
         playSound(
             520,
             0.12
         );
+
 
         setTimeout(
             () => {
@@ -423,6 +469,7 @@ function updateMessage() {
             message.textContent =
                 messages[current];
 
+
             sign.classList.remove(
                 "change"
             );
@@ -439,7 +486,9 @@ function updateMessage() {
     const percentage =
         (
             current /
-            (messages.length - 1)
+            (
+                messages.length - 1
+            )
         ) * 100;
 
 
@@ -452,82 +501,106 @@ function updateMessage() {
     );
 
 
-    /* BOTÓN */
+    /* ==============================
+       BOTÓN
+    =============================== */
 
-    if (current === 0) {
+    if (
+        current === 0
+    ) {
 
         interaction.textContent =
             "Tócame 👆";
 
     }
 
-    else if (current === 1) {
+    else if (
+        current === 1
+    ) {
 
         interaction.textContent =
             "A ver... 👀";
 
     }
 
-    else if (current === 2) {
+    else if (
+        current === 2
+    ) {
 
         interaction.textContent =
             "Continúa 😭";
 
     }
 
-    else if (current === 3) {
+    else if (
+        current === 3
+    ) {
 
         interaction.textContent =
             "Bueno pues...";
 
     }
 
-    else if (current === 4) {
+    else if (
+        current === 4
+    ) {
 
         interaction.textContent =
             "Siguiente 👀";
 
     }
 
-    else if (current === 5) {
+    else if (
+        current === 5
+    ) {
 
         interaction.textContent =
             "Sigue";
 
     }
 
-    else if (current === 6) {
+    else if (
+        current === 6
+    ) {
 
         interaction.textContent =
             "JAJA";
 
     }
 
-    else if (current === 7) {
+    else if (
+        current === 7
+    ) {
 
         interaction.textContent =
             "Ya ya 😭";
 
     }
 
-    else if (current === 8) {
+    else if (
+        current === 8
+    ) {
 
         interaction.textContent =
             "🤐";
 
     }
 
-    else if (current === 9) {
+    else if (
+        current === 9
+    ) {
 
         interaction.textContent =
             "Una última...";
 
     }
 
-    else if (current === 10) {
+    else if (
+        current === 10
+    ) {
 
         interaction.textContent =
-            "🌙";
+            "🍀";
 
         finish();
 
@@ -554,9 +627,11 @@ function changeExpression(
         number === 9
     ) {
 
-        mouth.style.width = "25px";
+        mouth.style.width =
+            "25px";
 
-        mouth.style.height = "15px";
+        mouth.style.height =
+            "15px";
 
         mouth.style.borderBottom =
             "4px solid #49303b";
@@ -572,9 +647,11 @@ function changeExpression(
         number === 2
     ) {
 
-        mouth.style.width = "14px";
+        mouth.style.width =
+            "14px";
 
-        mouth.style.height = "14px";
+        mouth.style.height =
+            "14px";
 
         mouth.style.border =
             "3px solid #49303b";
@@ -590,9 +667,11 @@ function changeExpression(
         number === 6
     ) {
 
-        mouth.style.width = "30px";
+        mouth.style.width =
+            "30px";
 
-        mouth.style.height = "17px";
+        mouth.style.height =
+            "17px";
 
         mouth.style.borderBottom =
             "5px solid #49303b";
@@ -608,9 +687,11 @@ function changeExpression(
         number === 8
     ) {
 
-        mouth.style.width = "18px";
+        mouth.style.width =
+            "18px";
 
-        mouth.style.height = "8px";
+        mouth.style.height =
+            "8px";
 
         mouth.style.borderBottom =
             "3px solid #49303b";
@@ -621,11 +702,15 @@ function changeExpression(
     }
 
 
-    if (number === 10) {
+    if (
+        number === 10
+    ) {
 
-        mouth.style.width = "15px";
+        mouth.style.width =
+            "18px";
 
-        mouth.style.height = "8px";
+        mouth.style.height =
+            "8px";
 
         mouth.style.borderBottom =
             "3px solid #49303b";
@@ -646,6 +731,11 @@ function triggerCats(
     stepNumber
 ) {
 
+    /*
+       PASO 2
+       GATO BLANCO
+    */
+
     if (
         stepNumber === 2
     ) {
@@ -664,6 +754,11 @@ function triggerCats(
     }
 
 
+    /*
+       PASO 5
+       GATO NARANJA
+    */
+
     if (
         stepNumber === 5
     ) {
@@ -681,6 +776,11 @@ function triggerCats(
 
     }
 
+
+    /*
+       PASO 7
+       GATO NEGRO PLOMO
+    */
 
     if (
         stepNumber === 7
@@ -747,6 +847,10 @@ function finish() {
             );
 
 
+            /*
+               Aseguramos los tres gatos
+            */
+
             showCat(
                 catWhite
             );
@@ -775,6 +879,10 @@ function finish() {
                 500
             );
 
+
+            /*
+               Sonido final
+            */
 
             setTimeout(
                 () => {
